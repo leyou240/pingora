@@ -17,14 +17,14 @@ name = "pingora_memory_cache"
 path = "src/lib.rs"
 
 [dependencies]
-TinyUFO = { version = "0.8.0", path = "../tinyufo" }
+tinyufo = { workspace = true }
 ahash = { workspace = true }
 tokio = { workspace = true, features = ["sync"] }
 async-trait = { workspace = true }
-pingora-error = { version = "0.8.0", path = "../pingora-error" }
+pingora-error = { workspace = true }
 log = { workspace = true }
-parking_lot = "0"
-pingora-timeout = { version = "0.8.0", path = "../pingora-timeout" }
+parking_lot = { workspace = true }
+pingora-timeout = { workspace = true }
 
 [dev-dependencies]
 once_cell = { workspace = true }

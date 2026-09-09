@@ -1,8 +1,6 @@
 
 
 
-
-
 [workspace]
 resolver = "2"
 members = [
@@ -31,9 +29,34 @@ members = [
 ]
 
 [workspace.dependencies]
+# Internal workspace crates
+pingora = { path = "pingora", version = "0.8.0" }
+pingora-core = { path = "pingora-core", version = "0.8.0", default-features = false }
+pingora-pool = { path = "pingora-pool", version = "0.8.0" }
+pingora-error = { path = "pingora-error", version = "0.8.0" }
+pingora-limits = { path = "pingora-limits", version = "0.8.0" }
+pingora-timeout = { path = "pingora-timeout", version = "0.8.0" }
+pingora-header-serde = { path = "pingora-header-serde", version = "0.8.0" }
+pingora-proxy = { path = "pingora-proxy", version = "0.8.0", default-features = false }
+pingora-cache = { path = "pingora-cache", version = "0.8.0", default-features = false }
+pingora-http = { path = "pingora-http", version = "0.8.0" }
+pingora-lru = { path = "pingora-lru", version = "0.8.0" }
+pingora-openssl = { path = "pingora-openssl", version = "0.8.0" }
+pingora-boringssl = { path = "pingora-boringssl", version = "0.8.0" }
+pingora-runtime = { path = "pingora-runtime", version = "0.8.0" }
+pingora-rustls = { path = "pingora-rustls", version = "0.8.0" }
+pingora-s2n = { path = "pingora-s2n", version = "0.8.0" }
+pingora-ketama = { path = "pingora-ketama", version = "0.8.0" }
+pingora-load-balancing = { path = "pingora-load-balancing", version = "0.8.0", default-features = false }
+pingora-memory-cache = { path = "pingora-memory-cache", version = "0.8.0" }
+pingora-prometheus = { path = "pingora-prometheus", version = "0.8.0" }
+pingora-foundations = { path = "pingora-foundations", version = "0.8.0" }
+tinyufo = { package = "TinyUFO", path = "tinyufo", version = "0.8.0" }
+
+# Runtime and core dependencies
 bstr = "1.12.0"
 tokio = "1"
-tokio-stream = { version = "0.1" }
+tokio-stream = "0.1"
 async-trait = "0.1.42"
 httparse = "1"
 bytes = "1.0"
@@ -43,8 +66,108 @@ log = "0.4"
 futures = "0.3"
 h2 = ">=0.4.16"
 once_cell = "1"
-lru = "0.18.2"
+lru = "0.18"
 ahash = ">=0.8.9"
+futures-util = { version = "0.3", default-features = false }
+libc = "0.2.70"
+foreign-types-shared = "0.3"
+tokio-test = "0.4"
+parking_lot = "0.12"
+rand = "0.10"
+rand_distr = "0.6"
+serde = "1.0"
+serde_yaml = "0.9"
+regex = "1"
+httpdate = "1.0.2"
+arrayvec = "0.7"
+thread_local = "1.0"
+flurry = "0.5"
+
+# Protocol, compression, TLS, and platform dependencies
+boring = "5"
+boring-sys = "5"
+foreign-types = "0.3"
+openssl-sys = "0.9"
+openssl = { version = "0.10.72", features = ["vendored"] }
+tokio-openssl = "0.6"
+ring = "0.17.12"
+rustls = "0.23.44"
+rustls-native-certs = "0.8"
+rustls-pemfile = "2.2"
+rustls-pki-types = "1.7.0"
+tokio-rustls = "0.26.5"
+no_debug = "3.1.0"
+s2n-tls = "0.3.43"
+s2n-tls-tokio = "0.3.43"
+zstd = "0.14"
+zstd-safe = "8"
+blake2 = "0.11"
+flate2 = { version = "1", default-features = false }
+brotli = "9"
+openssl-probe = "0.2"
+sfv = "0.15"
+percent-encoding = "2.1"
+socket2 = ">=0.6.5"
+x509-parser = "0.18.0"
+ouroboros = "0.18.4"
+
+# Supporting libraries
+indexmap = "2"
+rmp-serde = "1.3.0"
+rmp = "0.8.14"
+hex = "0.4"
+strum = "0.28"
+strum_macros = "0.28"
+clap = "4.5"
+chrono = { version = "~0.4.31", default-features = false }
+unicase = "2"
+daggy = "0.9"
+hashbrown = "0.17"
+async-channel = "2"
+crossbeam-queue = "0.3"
+crossbeam-skiplist = "0"
+dashmap = "6"
+arc-swap = "1"
+fnv = "1"
+crc32fast = "1.3"
+i_key_sort = "0.11"
+daemonix = "0.1.0"
+nix = "~0.31.1"
+windows-sys = "0.61"
+prometheus = "0.14"
+foundations = { version = "~5.10", default-features = false }
+sentry = { version = "0.49", default-features = false }
+slog = "2"
+slog-stdlog = "4"
+slog-scope = "4"
+pin-project-lite = "0.2"
+bencher = "0.1.5"
+
+# Development, integration, and benchmark dependencies
+criterion = "0.8"
+csv = "1.2"
+dhat = "0.3"
+cf-rustracing = "1.0"
+cf-rustracing-jaeger = "1.0"
+float-cmp = "0.10"
+env_logger = "0.11"
+reqwest = { version = "0.13.5", default-features = false }
+hyper = "1"
+hyper-util = "0.1"
+http-body-util = "0.1"
+rstest = "0.27.0"
+tokio-tungstenite = "0.30"
+serde_json = "1.0"
+hyperlocal = "0.9"
+document-features = "0.2.10"
+jemallocator = { package = "tikv-jemallocator", version = "0.7" }
+moka = "0"
+quick_cache = "0.7"
+triomphe = "0.1.16"
+
+# Optional runtime integrations
+dial9-tokio-telemetry = "0.5"
+aws-sdk-s3 = "1.146"
 
 [workspace.lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tokio_unstable)'] }

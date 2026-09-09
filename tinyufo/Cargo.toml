@@ -17,18 +17,18 @@ path = "src/lib.rs"
 
 [dependencies]
 ahash = { workspace = true }
-flurry = "0.5"
-crossbeam-queue = "0"
-crossbeam-skiplist = "0"
+flurry = { workspace = true }
+crossbeam-queue = { workspace = true }
+crossbeam-skiplist = { workspace = true }
 
 [dev-dependencies]
-rand = "0.9"
+rand = { workspace = true }
 lru = { workspace = true }
-rand_distr = "0.5"
-moka = { version = "0", features = ["sync"] }
-dhat = "0"
-quick_cache = "0.6"
-triomphe = "<=0.1.11" # 0.1.12 requires Rust 1.76
+rand_distr = { workspace = true }
+moka = { workspace = true, features = ["sync"] }
+dhat = { workspace = true }
+quick_cache = { workspace = true }
+triomphe = { workspace = true } # 0.1.12 requires Rust 1.76
 
 [[bench]]
 name = "bench_perf"

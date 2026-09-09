@@ -17,12 +17,12 @@ name = "pingora_openssl"
 path = "src/lib.rs"
 
 [dependencies]
-openssl-sys = "0.9"
-openssl = { version = "0.10.72", features = ["vendored"] }
-tokio-openssl = { version = "0.6" }
-libc = "0.2.70"
-foreign-types = { version = "0.3"}
+openssl-sys = { workspace = true }
+openssl = { workspace = true }
+tokio-openssl = { workspace = true }
+libc = { workspace = true }
+foreign-types = { workspace = true }
 
 [dev-dependencies]
-tokio-test = "0.4"
+tokio-test = { workspace = true }
 tokio = { workspace = true, features = ["full"] }

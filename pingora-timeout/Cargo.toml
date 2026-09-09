@@ -23,13 +23,13 @@ tokio = { workspace = true, features = [
     "macros",
     "sync",
 ] }
-pin-project-lite = "0.2"
+pin-project-lite = { workspace = true }
 once_cell = { workspace = true }
-parking_lot = "0.12"
-thread_local = "1.0"
+parking_lot = { workspace = true }
+thread_local = { workspace = true }
 
 [dev-dependencies]
-bencher = "0.1.5"
+bencher = { workspace = true }
 
 [[bench]]
 name = "benchmark"

@@ -19,15 +19,15 @@ name = "pingora_core"
 path = "src/lib.rs"
 
 [dependencies]
-pingora-runtime = { version = "0.8.0", path = "../pingora-runtime" }
-pingora-openssl = { version = "0.8.0", path = "../pingora-openssl", optional = true }
-pingora-boringssl = { version = "0.8.0", path = "../pingora-boringssl", optional = true }
-pingora-pool = { version = "0.8.0", path = "../pingora-pool" }
-pingora-error = { version = "0.8.0", path = "../pingora-error" }
-pingora-timeout = { version = "0.8.0", path = "../pingora-timeout" }
-pingora-http = { version = "0.8.0", path = "../pingora-http" }
-pingora-rustls = { version = "0.8.0", path = "../pingora-rustls", optional = true }
-pingora-s2n = { version = "0.8.0", path = "../pingora-s2n", optional = true }
+pingora-runtime = { workspace = true }
+pingora-openssl = { workspace = true, optional = true }
+pingora-boringssl = { workspace = true, optional = true }
+pingora-pool = { workspace = true }
+pingora-error = { workspace = true }
+pingora-timeout = { workspace = true }
+pingora-http = { workspace = true }
+pingora-rustls = { workspace = true, optional = true }
+pingora-s2n = { workspace = true, optional = true }
 bstr = { workspace = true }
 tokio = { workspace = true, features = ["net", "rt-multi-thread", "signal"] }
 tokio-stream = { workspace = true }
@@ -39,71 +39,71 @@ http = { workspace = true }
 log = { workspace = true }
 h2 = { workspace = true }
 derivative.workspace = true
-clap = { version = "4.5", features = ["derive"] }
+clap = { workspace = true, features = ["derive"] }
 once_cell = { workspace = true }
-serde = { version = "1.0", features = ["derive"] }
-serde_yaml = "0.9"
-strum = "0.26.2"
-strum_macros = "0.26.2"
-libc = "0.2.70"
-chrono = { version = "~0.4.31", features = ["alloc"], default-features = false }
-sentry = { version = "0.36", features = [
+serde = { workspace = true, features = ["derive"] }
+serde_yaml = { workspace = true }
+strum = { workspace = true }
+strum_macros = { workspace = true }
+libc = { workspace = true }
+chrono = { workspace = true, features = ["alloc"], default-features = false }
+sentry = { workspace = true, features = [
     "backtrace",
     "contexts",
     "panic",
     "reqwest",
     "rustls",
 ], default-features = false, optional = true }
-regex = "1"
-percent-encoding = "2.1"
-parking_lot = { version = "0.12", features = ["arc_lock"] }
-socket2 = { version = ">=0.4, <1.0.0", features = ["all"] }
-flate2 = { version = "1", features = ["zlib-ng"], default-features = false }
-sfv = "0.10.4"
-rand = "0.8"
+regex = { workspace = true }
+percent-encoding = { workspace = true }
+parking_lot = { workspace = true, features = ["arc_lock"] }
+socket2 = { workspace = true, features = ["all"] }
+flate2 = { workspace = true, features = ["zlib-ng"], default-features = false }
+sfv = { workspace = true }
+rand = { workspace = true }
 ahash = { workspace = true }
-unicase = "2"
-brotli = "3"
-openssl-probe = "0.1.6"
-tokio-test = "0.4"
-zstd = "0"
-httpdate = "1"
-x509-parser = { version = "0.16.0", optional = true }
-ouroboros = { version = "0.18.4", optional = true }
+unicase = { workspace = true }
+brotli = { workspace = true }
+openssl-probe = { workspace = true }
+tokio-test = { workspace = true }
+zstd = { workspace = true }
+httpdate = { workspace = true }
+x509-parser = { workspace = true, optional = true }
+ouroboros = { workspace = true, optional = true }
 lru = { workspace = true, optional = true }
-daggy = "0.8"
+daggy = { workspace = true }
 
 [target.'cfg(unix)'.dependencies]
-flurry = "0.5"
-daemonix = "0.1.0"
-nix = { version = "~0.31.1", features = ["socket", "net", "fs", "uio"] }
+flurry = { workspace = true }
+daemonix = { workspace = true }
+nix = { workspace = true, features = ["socket", "net", "fs", "uio"] }
 
 [target.'cfg(windows)'.dependencies]
-windows-sys = { version = "0.59.0", features = ["Win32_Networking_WinSock"] }
+windows-sys = { workspace = true, features = ["Win32_Networking_WinSock"] }
 
 [dev-dependencies]
-criterion = { version = "0.7", features = ["async_tokio"] }
+criterion = { workspace = true, features = ["async_tokio"] }
 h2 = { workspace = true, features = ["unstable"] }
-tokio-stream = { version = "0.1", features = ["full"] }
-env_logger = "0.11"
-reqwest = { version = "0.12", features = [
-    "rustls-tls",
+tokio-stream = { workspace = true, features = ["full"] }
+env_logger = { workspace = true }
+reqwest = { workspace = true, features = [
+    "rustls",
     "http2",
 ], default-features = false }
-hyper = { version = "1", features = ["client", "http1", "http2"] }
-hyper-util = { version = "0.1", features = ["client-legacy", "http1", "http2"] }
-http-body-util = "0.1"
-rstest = "0.23.0"
-rustls = "0.23"
+hyper = { workspace = true, features = ["client", "http1", "http2"] }
+hyper-util = { workspace = true, features = ["client-legacy", "http1", "http2"] }
+http-body-util = { workspace = true }
+rstest = { workspace = true }
+rustls = { workspace = true }
 
 [[bench]]
 name = "h1_pipelining"
 harness = false
 
 [target.'cfg(unix)'.dev-dependencies]
-hyperlocal = "0.9"
+hyperlocal = { workspace = true }
 # Match foundations' allocator so workspace all-features tests link one jemalloc.
-jemallocator = { package = "tikv-jemallocator", version = "0.6" }
+jemallocator = { workspace = true }
 
 [features]
 default = []

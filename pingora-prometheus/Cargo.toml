@@ -16,7 +16,7 @@ name = "pingora_prometheus"
 path = "src/lib.rs"
 
 [dependencies]
-pingora-core = { version = "0.8.0", path = "../pingora-core", default-features = false }
-prometheus = "0.14"
+pingora-core = { workspace = true, default-features = false }
+prometheus = { workspace = true }
 async-trait = { workspace = true }
 http = { workspace = true }

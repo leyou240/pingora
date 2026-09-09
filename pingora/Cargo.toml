@@ -22,39 +22,42 @@ features = ["document-features"]
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-pingora-core = { version = "0.8.0", path = "../pingora-core", default-features = false }
-pingora-http = { version = "0.8.0", path = "../pingora-http" }
-pingora-timeout = { version = "0.8.0", path = "../pingora-timeout" }
-pingora-load-balancing = { version = "0.8.0", path = "../pingora-load-balancing", optional = true, default-features = false }
-pingora-proxy = { version = "0.8.0", path = "../pingora-proxy", optional = true, default-features = false }
-pingora-cache = { version = "0.8.0", path = "../pingora-cache", optional = true, default-features = false }
+pingora-core = { workspace = true, default-features = false }
+pingora-http = { workspace = true }
+pingora-timeout = { workspace = true }
+pingora-load-balancing = { workspace = true, optional = true, default-features = false }
+pingora-proxy = { workspace = true, optional = true, default-features = false }
+pingora-cache = { workspace = true, optional = true, default-features = false }
 
 
 # Only used for documenting features, but doesn't work in any other dependency 
 # group :(
-document-features = { version = "0.2.10", optional = true }
+document-features = { workspace = true, optional = true }
 
 [dev-dependencies]
-clap = { version = "4.5", features = ["derive"] }
+clap = { workspace = true, features = ["derive"] }
 tokio = { workspace = true, features = ["rt-multi-thread", "signal"] }
-env_logger = "0.11"
-reqwest = { version = "0.12", features = ["rustls-tls", "http2"], default-features = false }
-hyper = { version = "1", features = ["client", "http1", "http2"] }
-hyper-util = { version = "0.1", features = ["client-legacy", "http1", "http2"] }
-http-body-util = "0.1"
+env_logger = { workspace = true }
+reqwest = { workspace = true, features = [
+    "rustls",
+    "http2",
+], default-features = false }
+hyper = { workspace = true, features = ["client", "http1", "http2"] }
+hyper-util = { workspace = true, features = ["client-legacy", "http1", "http2"] }
+http-body-util = { workspace = true }
 async-trait = { workspace = true }
 http = { workspace = true }
 log = { workspace = true }
-pingora-prometheus = { version = "0.8.0", path = "../pingora-prometheus" }
-prometheus = "0.14"
+pingora-prometheus = { workspace = true }
+prometheus = { workspace = true }
 once_cell = { workspace = true }
 bytes = { workspace = true }
-regex = "1"
+regex = { workspace = true }
 
 [target.'cfg(unix)'.dev-dependencies]
-hyperlocal = "0.9"
+hyperlocal = { workspace = true }
 # Match foundations' allocator so workspace all-features tests link one jemalloc.
-jemallocator = { package = "tikv-jemallocator", version = "0.6" }
+jemallocator = { workspace = true }
 
 [features]
 default = []
@@ -170,6 +173,6 @@ document-features = [
     "dial9",
     "dial9-worker-s3",
     "dial9-cpu-profiling",
-    "connection_filter"
+    "connection_filter",
 ]
 trace = ["pingora-cache?/trace", "pingora-proxy?/trace"]

@@ -17,16 +17,16 @@ name = "pingora_boringssl"
 path = "src/lib.rs"
 
 [dependencies]
-boring = "5" # PQ is always enabled in 5
-boring-sys = "5"
-futures-util = { version = "0.3", default-features = false }
+boring = { workspace = true } # PQ is always enabled in 5
+boring-sys = { workspace = true }
+futures-util = { workspace = true, default-features = false }
 tokio = { workspace = true, features = ["io-util", "net", "macros", "rt-multi-thread"] }
-libc = "0.2.70"
-foreign-types-shared = { version = "0.3" }
+libc = { workspace = true }
+foreign-types-shared = { workspace = true }
 
 
 [dev-dependencies]
-tokio-test = "0.4"
+tokio-test = { workspace = true }
 tokio = { workspace = true, features = ["full"] }
 
 [features]

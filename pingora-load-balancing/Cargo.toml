@@ -18,14 +18,14 @@ path = "src/lib.rs"
 
 [dependencies]
 async-trait = { workspace = true }
-pingora-http = { version = "0.8.0", path = "../pingora-http" }
-pingora-error = { version = "0.8.0", path = "../pingora-error" }
-pingora-core = { version = "0.8.0", path = "../pingora-core", default-features = false }
-pingora-ketama = { version = "0.8.0", path = "../pingora-ketama" }
-pingora-runtime = { version = "0.8.0", path = "../pingora-runtime" }
-arc-swap = "1"
-fnv = "1"
-rand = "0.8"
+pingora-http = { workspace = true }
+pingora-error = { workspace = true }
+pingora-core = { workspace = true, default-features = false }
+pingora-ketama = { workspace = true }
+pingora-runtime = { workspace = true }
+arc-swap = { workspace = true }
+fnv = { workspace = true }
+rand = { workspace = true }
 tokio = { workspace = true }
 futures = { workspace = true }
 log = { workspace = true }
